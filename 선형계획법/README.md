@@ -1,1 +1,1 @@
-Linear Programming Algorithm
+**Linear Programming Algorithm**
