@@ -9,28 +9,13 @@ def analysis(data):
     stdzation = [round((v - np.mean(data)) / std, 2) for v in data]
 
     return (
-        "mean : %.2f, var : %.2f, std : %.2f" % (np.mean(data), var, std),
+        "mean : %.2f, var : %.2f, std : %.2f, 표준화:" % (np.mean(data), var, std),
         stdzation,
     )
 
 
 def cov(data1, data2):
-    return np.cov(data1, data2)[0][0], np.corrcoef(data1, data2)[0][1]
-
-
-print(analysis([60, 45, 155, 130, 80, 210, 200, 185, 135, 55]))
-print(analysis([170, 166, 175, 158, 174, 180, 176, 170, 178, 169]))
-print("")
-print(
-    "data1의 분산, 공분산 \n",
-    cov(
-        [170, 166, 175, 158, 174, 180, 176, 170, 178, 169],
-        [63, 65, 61, 59, 63, 77, 66, 56, 71, 63],
-    ),
-)
-print("")
-X = [5.5, 4.5, 4.1, 3.5, 2.5, 2.3, 2.7, 2.8]
-y = [73, 59, 56, 31, 28, 31, 30, 25]
+    return np.cov(data1, data2)[0][1], np.corrcoef(data1, data2)[0][1]
 
 
 def Regression(X, y):
@@ -53,12 +38,25 @@ def Regression(X, y):
     )
 
 
-print("회귀 방정식 구하기 : Y = b1x + b0")
+print(analysis([60, 45, 155, 130, 80, 210, 200, 185, 135, 55]))
+print(analysis([170, 166, 175, 158, 174, 180, 176, 170, 178, 169]))
+print("")
+print(
+    "data1, data2의 공분산,상관계수 \n",
+    cov(
+        [170, 166, 175, 158, 174, 180, 176, 170, 178, 169],
+        [63, 65, 61, 59, 63, 77, 66, 56, 71, 63],
+    ),
+)
+print("")
+print("단순회귀 방정식 구하기 : Y = b1x + b0, (b1에 대한 편미분, b0에 대한 편미분, 두 방정식을 연립한 해)")
 print(
     Regression(
         [5.5, 4.5, 4.1, 3.5, 2.5, 2.3, 2.7, 2.8], [73, 59, 56, 31, 28, 31, 30, 25]
     )
 )
-
+X = [5.5, 4.5, 4.1, 3.5, 2.5, 2.3, 2.7, 2.8]
+y = [73, 59, 56, 31, 28, 31, 30, 25]
 plt.plot(X, y, "o")
+plt.title("Scatter Plot")
 plt.show()
