@@ -21,7 +21,7 @@ def Tone(word, n):
             return word
     elif "i" in word or "u" in word:
         if "i" in word and "u" in word:
-            if word.index("i") > word.index("u"):
+            if word.index("i") < word.index("u"):
                 word = word.replace("u", conso[4][n])
                 return word
 
@@ -40,6 +40,8 @@ print("zhuang(4) --> ", Tone("zhuang", 4))
 print("nian(2) -->", Tone("nian", 2))
 print("qiong(2) -->", Tone("qiong", 2))
 print("zhuo(3) -->", Tone("zhuo", 3))
+print("hui(1) -->", Tone("hui", 1))
 print("shiquan(2,2) -->", Tone("shi", 2), Tone("quan", 2))
 print("liubai(4,3) -->", Tone("liu", 4), Tone("bai", 3))
-print("shiquan(1,4) -->", Tone("san", 1), Tone("wan", 4))
+print("liuwan(4,4) -->", Tone("liu", 4), Tone("wan", 4))
+print("sanwan(1,4) -->", Tone("san", 1), Tone("wan", 4))
