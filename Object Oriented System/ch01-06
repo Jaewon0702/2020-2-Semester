@@ -1,0 +1,29 @@
+#define N 5
+#include <iostream>
+using namespace std;
+int main(){
+    int kor[N]={90,80,70,60,100};
+	int math[N] = {81,91,81,81,100};
+	int order[N];
+	double avg[N];
+	int i,j;
+
+	//평균 구하기
+	for(i=0;i<N;i++)
+		avg[i]=(double)(kor[i]+math[i])/2;
+    
+	//석차 구하기
+	for(i=0;i<N;i++){
+		order[i]=1;
+		for(j=0;j<N;j++){
+			if (avg[i]<avg[j])
+				order[i]++;
+            }
+    }
+	cout<<"국어"<<"\t"<<"수학"<<"\t"<<"평균"<<"\t"<<"석차"<<"\n";
+	cout<<"=============================================\n";
+	for(i=0;i<N;i++)
+		cout<<kor[i]<<"\t"<<math[i]<<"\t"<<avg[i]<<"\t"<<order[i]<<"\n";
+
+    return 0;
+}
