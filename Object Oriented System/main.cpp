@@ -1,44 +1,19 @@
+//구구단 출력하기
 #include <iostream>
 #include <iomanip>
-#define M 5
 using namespace std;
-
 int main(){
-	int quiz[M];
-	int i, cnt = 0, sum = 0;
-    double avg ;
+	int dan, i;
+	/*cout <<"출력을 원하는 단은?";
+	cin>>dan;
+	for(i=1;i<=9;i++)
+		cout<<dan<<"*"<<i<<"="<<dan*i<<"\n";*/
+	for(dan=1;dan<=9;dan++){
+		for(i=1;i<=9;i++)
+			cout<<dan<<"*"<<i<<"="<<setw(2)<<dan*i<<"\t";
+		cout<<"\n";
 
-	cout << M << "명의 점수를 순서대로 입력하라. \n\n";
-
-	for(i=0; i<M; i++){
-		cout<<i+1<<"번의 퀴즈점수는?";
-		cin>>quiz[i];
-	}
-	
-	for(i=0;i<M;i++){
-		sum+=quiz[i];
-	}
-	avg = (double)sum/M;
-	
-	for(i=0;i<M;i++){
-		if (quiz[i]<avg)
-			cnt++;
 	}
 
 
-	cout <<"===========================================\n";
-	cout<<"번호\t점수\t평균과의 차이\n";
-	cout<<"---------------------------------------------\n";
-	for(i=0;i<M;i++){
-		cout<<setw(4)<<i+1<<"\t"<<setw(4)<<quiz[i]<<setw(14)<<quiz[i]-avg<<"\n";
-	}
-	cout<<"평균 :"<<avg<<"점 \n";
-	cout<<"평균미만 :"<<cnt<<"명 \n";
-	cout<<"===========================================\n";
-
-	
-
-
-
-	return 0;
 }
